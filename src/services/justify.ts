@@ -1,4 +1,4 @@
-function justifyText(text: string, lineWidth: number = 80): string {
+export function justifyText(text: string, lineWidth: number = 80): string {
 
   let justifiedtext = "";
   
@@ -43,20 +43,3 @@ function justifyLine(words: string[], lineWidth: number, lastLine: boolean = fal
   }
   return result.trimEnd();
 }
-
-
-
-const input = `The sky above the port was the color of television 
-
-tuned to a dead channel. It was a bright cold
-day in April and the clocks were striking thirteen.
-The quick brown fox jumps over the lazy dog and then just walked away slowly.`;
-
-
-console.log("=".repeat(80));
-console.log(input);
-console.log("=".repeat(80));
-console.log(justifyText(input));
-console.log("=".repeat(80));
-
-export default justifyText;

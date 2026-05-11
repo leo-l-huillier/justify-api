@@ -18,7 +18,7 @@ async function start(): Promise<void> {
     await connectRedis();
   } catch (err) {
     console.error('Could not connect to Redis:', err);
-    process.exit(1); // stop the app clearly if Redis is unavailable
+    process.exit(1);
   }
 
   app.listen(PORT, () => {

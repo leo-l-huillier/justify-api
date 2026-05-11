@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import justifyText from '../services/justify';
+import { justifyText } from '../services/justify';
 import { authMiddleware } from '../middleware/auth';
 import redisClient from '../services/redis';
 
