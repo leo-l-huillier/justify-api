@@ -15,17 +15,13 @@ router.post('/justify', authMiddleware, async (req, res) => {
     return;
   }
 
-  // Get the token from the header
   const token = req.headers['authorization']!.split(' ')[1];
 
-  // Count the words in this request
   const wordCount = text.split(/\s+/).filter(Boolean).length;
 
-  // Build a Redis key that is unique per token per day
   const today = new Date().toISOString().slice(0, 10); // "2026-05-11"
   const rateLimitKey = `ratelimit:${token}:${today}`;
 
-  // Get the current word count for today
   const current = await redisClient.get(rateLimitKey);
   const currentCount = current ? parseInt(current) : 0;
 
@@ -34,7 +30,6 @@ router.post('/justify', authMiddleware, async (req, res) => {
     return;
   }
 
-  // Increment the counter, set it to expire at midnight (86400 seconds = 24h)
   await redisClient.set(rateLimitKey, currentCount + wordCount, { EX: 86400 });
 
   const justified = justifyText(text);

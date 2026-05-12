@@ -14,8 +14,6 @@ router.post('/token', async (req, res) => {
 
   const token = uuidv4();
 
-  // Store token in Redis with the email as value
-  // No expiry — tokens last forever
   await redisClient.set(`token:${token}`, email);
 
   res.json({ token });
