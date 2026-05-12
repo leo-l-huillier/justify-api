@@ -274,6 +274,10 @@ gap 2 → 2 spaces  (2 + 0, car 2 >= 2)
 result → "foo   bar   baz  qux"  ✅ (20 chars)
 
 ```
+
+---
+
+
 **Example**
 
 Input:
@@ -295,7 +299,7 @@ curl -X POST https://api.lhuillierleo.com/api/justify \
   day in April and the clocks were striking thirteen.The quick brown fox jumps over the 
   lazy dog and then just walked away slowly.'
 ```
-Ouptput:
+Output:
 ```
 The  sky  above the port was the color of television tuned to a dead channel. It
 was  a  bright cold day in April and the clocks were striking thirteen.The quick
